@@ -1,1 +1,57 @@
+tasks= []
+def listTasks():
+  if not tasks:
+    print("There are no tasks currently.")
+  else:
+    print("Current Tasks:")
+    for index, task in enumerate(tasks):
+      print(f"Task #{index}. {task}")
+
+def addTask():
+    task = input("Please enter a task: ")
+    tasks.append(task)
+    print(f"Task '{task}' added to the list.")
+
+
+
+def deleteTask():
+    if len(tasks) ==0:
+        print("No tasks to delete.")
+    else:
+        listTasks()
+        taskIndex = int(input("Enter the # to delete: "))
+        if taskIndex >=1 and taskIndex <= len(tasks):
+            deletedTask = tasks.pop(taskIndex-1)
+            print(f"Task '{deletedTask}' deleted.")
+        else:
+            print("Invalid task number. Please try again.")
+
+
+
+if __name__ == "__main__":
+    print("To Do List App ✔")
+
+    while True:
+        print("\n")
+        print("Select an option:")
+        print("※※※※※※※※※※※※※※※※※※")
+        print("1. Add a task")
+        print("2. Delete a task")
+        print("3. View all tasks")
+        print("4. Exit")
+
+        choice = input("Enter your choice: ")
+
+        if(choice =="1"):
+            addTask()
+        elif(choice =="2"):
+            deleteTask()
+        elif(choice =="3"):
+            listTasks()
+        elif(choice == "4"):
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+    print("Thank you for using the To Do List App. Goodbye! 😊")
 
